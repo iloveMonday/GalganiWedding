@@ -11,69 +11,55 @@
     <h3>You're Invited to Olivia & Joe's Wedding Celebration</h3>
 
     <form id="contactForm">
+        <p>
+            <label>Will You Be Attending?</label><br>
+            <!-- <label for="yes">Yes</label><input type="radio" value="yes" name="rsvp">
+            <label for="no">No</label><input type="radio" value="no" name="rsvp"> -->
+            <button id="yes-rsvp" class="rsvp-button" type="button">Yes</button>
+            <button id="no-rsvp" class="rsvp-button" type="button">No</button>
+        </p>
+        <div id="no-box" class="bye">
+            <span>Sorry You Can't Make It! Please Send Regrets</span>
+            <p>
+                <label>Name</label><br>
+                <input type="text" name="r-name">
+            </p>
+            <p>
+                <label>Would You Like to Send a Message?</label><br>
+                <textarea name="message" id="message" rows="2"></textarea>
+            </p>
+        </div>
+          <div id="yes-box" class="bye">
+              <p>
+                <label>Your Name</label><br>
+                <input type="text" name="name" id="name" required>
+              </p>
+              <!-- <p>
+                <label>How Many Additional Guests Will You Be Bringing?</label><br>
+                <input type="range" name="additional" id="additional" min="0" max="10" value="0"><span id="add-num"></span>
+              </p> -->
+              <p>
+                <label>Will You Be Bringing Anyone Else?</label><br>
+              <div id="guest-box"></div>
+                <button id="add-guest" type="button">add guest</button>
+                <!-- <input type="text" class="additional" name="additional">
+                <input type="text" class="additional" name="additional"> -->
+              </p>
+              <p>
+                <label>Any Food Allergies?</label><br>
+                <input type="text" name="allergy" id="allergy">
+              </p>
+              <p>
+                <label>Do You Have a Song Request?</label><br>
+                <input type="text" name="song" id="song">
+              </p>
+          </div>
           <p>
-            <label>Your Name</label><br>
-            <input type="text" name="name" id="name" required>
-          </p>
-          <p>
-            <label>How Many Additional Guests Will You Be Bringing?</label><br>
-            <input type="range" name="additional" id="additional" min="0" max="10" value="0">
-             <!-- <input type="text" name="additional" id="additional"> -->
-          </p>
-          <div id="guest-box"></div>
-          <p>
-            <label>Any Food Allergies?</label><br>
-            <input type="text" name="allergy" id="allergy">
-          </p>
-          <p>
-            <label>Do You Have a Song Request?</label><br>
-            <input type="text" name="song" id="song">
-          </p>
-          <p>
-            <button type="submit">Submit</button>
+            <button type="submit" id="submit" class="bye">Submit</button>
           </p>
         </form>
 
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-
-    <script>
-        // import { createClient } from '@supabase/supabase-js'
-        const { createClient } = supabase
-        
-        // Create a single supabase client for interacting with your database
-        supabase = createClient('https://xpgmemabdeoopiskviwc.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhwZ21lbWFiZGVvb3Bpc2t2aXdjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ5NTc0OTcsImV4cCI6MjA3MDUzMzQ5N30.RSrii0Faellpnb8eTL4npC93Ucsv9oAKDCVwq2O_UeY')
-        
-        const form = document.getElementById('contactForm');
-        form.addEventListener('submit', async(e)=>{
-            e.preventDefault();
-
-            const formInputs = form.querySelectorAll('input')
-
-            let submission = {}
-            
-            formInputs.forEach(e =>{
-                const { value, name } = e;
-                if (value){
-                    submission[name] = value;
-                }
-            })
-
-            console.log(submission);
-
-            const { error } = await supabase.from('guestinfo').insert([submission], { returning: 'minimal'})
-
-          if (error) {
-              alert('There was an error please try again')
-          } else {
-              alert('Thanks for contacting us')
-          }
-
-          formInputs.forEach(e => e.value = '')
-
-            // const { error, data } = await supabase.from('guestinfo').insert([submission])
-            // console.log({ error, data })
-        })
-    </script>
 
 </body>
 </html>

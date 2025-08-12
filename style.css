@@ -1,3 +1,25 @@
 body{
     background: turquoise;
 }
+
+#guest-box{
+    display: flex;
+    flex-direction: column
+}
+
+/* #no-box{
+    display: inline;
+}
+
+#yes-box{
+    display: inline;
+} */
+
+.bye {
+  display: none;
+  visibility: hidden;
+}
+
+.selected{
+    background-color:blueviolet
+}
