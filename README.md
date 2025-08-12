@@ -1,7 +1,7 @@
 Olivia & Joe's Wedding
 
 Saturday October 18, 2025 (time??)
-Kitchen Garden Farm 131 S Silver Lane - Sunderland, MA
+Kitchen Garden Farm 131 S Silver Lane, Sunderland, MA
 Any Food Allergies
 How Many People
 Song for the Playlist

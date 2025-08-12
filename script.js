@@ -1,5 +1,3 @@
-console.log("henlo");
-
 //////////////////////////////////Back End Stuff//////////////////////////////////////////////////////
 
 const { createClient } = supabase;
@@ -14,7 +12,7 @@ const form = document.getElementById("contactForm");
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const formInputs = form.querySelectorAll("input");
+  const formInputs = form.querySelectorAll("input, textarea");
 
   let submission = {};
 
@@ -35,9 +33,9 @@ form.addEventListener("submit", async (e) => {
     .insert([submission], { returning: "minimal" });
 
   if (error) {
-    alert("There was an error please try again");
+    alert("Oh no. Oh jeez. There was an error. Maybe your forgot your name. Please try again.");
   } else {
-    alert("Thanks for contacting us");
+    alert("Your RSVP has been submitted! See you in the field!");
   }
 
   formInputs.forEach((e) => (e.value = ""));
@@ -45,28 +43,10 @@ form.addEventListener("submit", async (e) => {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/////////////ADDITIONAL GUEST SLIDER
-
-// let addSlider = document.getElementById('additional');
-// let addNum = document.getElementById('add-num');
-// let guestBox = document.getElementById('guest-box');
-
-// function guestNumber(num){
-//     addNum.innerHTML = '';
-//     addNum.innerHTML = num;
-// }
-
-// function guestLines(num){
-
-// }
-
-// addSlider.addEventListener("input", () =>{
-//     let num = addSlider.value;
-//     guestNumber(num);
-// })
-
 let addGuestButton = document.getElementById("add-guest");
 let guestBox = document.getElementById("guest-box");
+let yesName = document.getElementById("name");
+let noName = document.getElementById("no-name");
 
 function newGuestLine() {
   let input = document.createElement("input");
@@ -93,7 +73,11 @@ function compileGuests() {
 }
 
 function totalGuests() {
-  return compileGuests().length + 1;
+  if (yesName.value) {
+    return compileGuests().length + 1;
+  } else {
+    return 0;
+  }
 }
 
 let yesButton = document.getElementById("yes-rsvp");
@@ -123,12 +107,99 @@ function rsvpSelect() {
     noBox.classList.add("bye");
     yesButton.classList.add("selected");
     noButton.classList.remove("selected");
+    yesName.required = true;
+
     submit.classList.remove("bye");
+    // noBox.innerHTML = ''
+    // populateYes();
   } else {
-    noBox.classList.remove("bye");
     yesBox.classList.add("bye");
-    noButton.classList.add("selected");
+    noBox.classList.remove("bye");
     yesButton.classList.remove("selected");
+    noButton.classList.add("selected");
+    yesName.required = false;
+    
     submit.classList.remove("bye");
+    // yesBox.innerHTML = "";
+    // populateNo();
   }
+}
+
+
+
+
+
+
+
+
+function populateNo() {
+  let span = document.createElement("span");
+  span.innerHTML = "Sorry You Can't Make It! Please Send Regrets";
+  let p1 = document.createElement("p");
+  let name1 = document.createElement("label");
+  name1.innerHTML = "Name:";
+  let inName = document.createElement("input");
+  inName.setAttribute("type", "text");
+  inName.setAttribute("name", "no-name");
+  inName.required = true;
+  p1.appendChild(name1);
+  p1.appendChild(inName);
+  let p2 = document.createElement("p");
+  let message = document.createElement("label");
+  message.innerHTML = "Would You Like to Send a Message?";
+  let inMessage = document.createElement("textarea");
+  inMessage.setAttribute("id", "message");
+  inMessage.setAttribute("name", "message");
+  inMessage.setAttribute("rows", "2");
+  p2.appendChild(message);
+  p2.appendChild(inMessage);
+  noBox.appendChild(span);
+  noBox.appendChild(p1);
+  noBox.appendChild(p2);
+}
+
+function populateYes() {
+  let p1 = document.createElement("p");
+  let p2 = document.createElement("p");
+  let p3 = document.createElement("p");
+  let p4 = document.createElement("p");
+  let nameLab = document.createElement("label");
+  let yourName = document.createElement("input");
+  nameLab.innerHTML = "Your Name:";
+  yourName.setAttribute("type", "text");
+  yourName.setAttribute("name", "name");
+  yourName.setAttribute("id", "name");
+  yourName.required = true;
+  p1.appendChild(nameLab);
+  p1.appendChild(yourName);
+  let bringLab = document.createElement("label");
+  let bringBox = document.createElement("div");
+  let bringButton = document.createElement("button");
+  bringLab.innerHTML = "Will You Be Bringing Anyone Else?";
+  bringBox.setAttribute("id", "guest-box");
+  bringButton.innerHTML = "add guest";
+  bringBox.setAttribute("id", "add-guest");
+  bringBox.setAttribute("type", "button");
+  p2.appendChild(bringLab);
+  p2.appendChild(bringBox);
+  p2.appendChild(bringButton);
+  let allLabel = document.createElement("label");
+  let allergy = document.createElement("input");
+  allLabel.innerHTML = "Any Food Allergies?";
+  allergy.setAttribute("type", "text");
+  allergy.setAttribute("name", "allergy");
+  allergy.setAttribute("id", "allergy");
+  p3.appendChild(allLabel);
+  p3.appendChild(allergy);
+  let songLab = document.createElement("label");
+  let song = document.createElement("input");
+  songLab.innerHTML = "Do You Have a Song Request?";
+  song.setAttribute("type", "text");
+  song.setAttribute("name", "song");
+  song.setAttribute("id", "song");
+
+  yesBox.appendChild(p1);
+  yesBox.appendChild(p2);
+  yesBox.appendChild(p3);
+  yesBox.appendChild(p4);
 }

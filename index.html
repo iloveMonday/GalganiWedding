@@ -8,55 +8,63 @@
     <script src="./script.js" defer></script>
 </head>
 <body>
-    <h3>You're Invited to Olivia & Joe's Wedding Celebration</h3>
+    <h2>You're Invited to Olivia & Joe's Wedding Celebration</h2>
+
+        <div id="details" class="field-in">
+            <span>Saturday October 18, 2025</span>
+            <span>Kitchen Garden Farm</span>
+            <span>131 S Silver Lane, Sunderland, MA</span>
+        </div>
+
 
     <form id="contactForm">
-        <p>
-            <label>Will You Be Attending?</label><br>
-            <!-- <label for="yes">Yes</label><input type="radio" value="yes" name="rsvp">
-            <label for="no">No</label><input type="radio" value="no" name="rsvp"> -->
-            <button id="yes-rsvp" class="rsvp-button" type="button">Yes</button>
-            <button id="no-rsvp" class="rsvp-button" type="button">No</button>
-        </p>
+
+            <!-- <div class="cloud"></div> -->
+            <div id="rsvp-box">
+                <h3>Will You Be Attending?</h3>
+                <div id="button-box">
+                    <button id="yes-rsvp" class="rsvp-button" type="button">Yes</button>
+                    <button id="no-rsvp" class="rsvp-button" type="button">No</button>
+                </div>
+            </div>
+        
         <div id="no-box" class="bye">
-            <span>Sorry You Can't Make It! Please Send Regrets</span>
-            <p>
-                <label>Name</label><br>
-                <input type="text" name="r-name">
-            </p>
-            <p>
-                <label>Would You Like to Send a Message?</label><br>
-                <textarea name="message" id="message" rows="2"></textarea>
-            </p>
+            <fieldset>
+                <span>Sorry You Can't Make It! Please Send Regrets</span>
+                <p>
+                    <label>Name</label><br>
+                    <input type="text" name="no-name">
+                </p>
+                <p>
+                    <label>Well Wishes & Hate Mail:</label><br>
+                    <textarea name="message" id="message" rows="3"></textarea>
+                </p>
+            </fieldset>
         </div>
           <div id="yes-box" class="bye">
-              <p>
-                <label>Your Name</label><br>
-                <input type="text" name="name" id="name" required>
-              </p>
-              <!-- <p>
-                <label>How Many Additional Guests Will You Be Bringing?</label><br>
-                <input type="range" name="additional" id="additional" min="0" max="10" value="0"><span id="add-num"></span>
-              </p> -->
-              <p>
-                <label>Will You Be Bringing Anyone Else?</label><br>
-              <div id="guest-box"></div>
-                <button id="add-guest" type="button">add guest</button>
-                <!-- <input type="text" class="additional" name="additional">
-                <input type="text" class="additional" name="additional"> -->
-              </p>
-              <p>
-                <label>Any Food Allergies?</label><br>
-                <input type="text" name="allergy" id="allergy">
-              </p>
-              <p>
-                <label>Do You Have a Song Request?</label><br>
-                <input type="text" name="song" id="song">
-              </p>
+              <fieldset>
+                  <p>
+                    <label>Your Name</label><br>
+                    <input type="text" name="name" id="name">
+                  </p>
+                  <p>
+                    <label>Will You Be Bringing Anyone Else?</label>
+                  <div id="guest-box"></div>
+                    <button id="add-guest" type="button">ADD GUEST</button>
+                  </p>
+                  <p>
+                    <label>Any Food Allergies?</label><br>
+                    <input type="text" name="allergy" id="allergy">
+                  </p>
+                  <p>
+                    <label>Do You Have a Song Request?</label><br>
+                    <input type="text" name="song" id="song">
+                  </p>
+              </fieldset>
           </div>
-          <p>
-            <button type="submit" id="submit" class="bye">Submit</button>
-          </p>
+            <div id="sub-box">
+                <button type="submit" id="submit" class="bye">Submit</button>
+            </div>
         </form>
 
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
