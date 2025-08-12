@@ -35,7 +35,7 @@ form.addEventListener("submit", async (e) => {
   if (error) {
     alert("Oh no. Oh jeez. There was an error. Maybe your forgot your name. Please try again.");
   } else {
-    alert("Your RSVP has been submitted! See you in the field!");
+    alert("Your RSVP has been submitted! See you in the field! No Dress Code, Just Dress for the Weather!");
   }
 
   formInputs.forEach((e) => (e.value = ""));
