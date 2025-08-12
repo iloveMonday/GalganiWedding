@@ -15,6 +15,13 @@ how to not zoom in on click on phone
 
 custom alerts with rsvp info
 
+space between new guests
+
+limit guests
+
+limit all inputs to max character length
+
+make YES/NO buttons stay the highlight colors .selected
 
 
 
