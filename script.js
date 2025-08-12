@@ -35,7 +35,8 @@ form.addEventListener("submit", async (e) => {
   if (error) {
     alert("Oh no. Oh jeez. There was an error. Maybe your forgot your name. Please try again.");
   } else {
-    alert("Your RSVP has been submitted! See you in the field! No Dress Code, Just Dress for the Weather!");
+    alert(`See you October 18th, ${yesName.value}!  -  No dress code, just dress for the weather!`);
+    // showRSVP();
   }
 
   formInputs.forEach((e) => (e.value = ""));
@@ -108,21 +109,21 @@ function rsvpSelect() {
     yesButton.classList.add("selected");
     noButton.classList.remove("selected");
     yesName.required = true;
-
     submit.classList.remove("bye");
-    // noBox.innerHTML = ''
-    // populateYes();
   } else {
     yesBox.classList.add("bye");
     noBox.classList.remove("bye");
     yesButton.classList.remove("selected");
     noButton.classList.add("selected");
     yesName.required = false;
-    
     submit.classList.remove("bye");
-    // yesBox.innerHTML = "";
-    // populateNo();
   }
+}
+
+function showRSVP() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+  popup.innerHTML = `See you in the field October 18th, ${yesName.value}! No Dress Code, Just Dress for the Weather!`
 }
 
 
