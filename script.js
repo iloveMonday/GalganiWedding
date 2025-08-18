@@ -35,12 +35,13 @@ form.addEventListener("submit", async (e) => {
   if (error) {
     alert("Oh no. Oh jeez. There was an error. Maybe your forgot your name. Please try again.");
   } else {
-    alert(`See you October 18th, ${yesName.value}!  -  No dress code, just dress for the weather!`);
+    alert(`See you October 18th, ${yesName.value}!`);
     // showRSVP();
   }
 
   formInputs.forEach((e) => (e.value = ""));
 });
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -86,6 +87,7 @@ let noButton = document.getElementById("no-rsvp");
 let yesBox = document.getElementById("yes-box");
 let noBox = document.getElementById("no-box");
 let submit = document.getElementById("submit");
+let subBox = document.getElementById("sub-box");
 
 let rsvp = "";
 
@@ -109,14 +111,16 @@ function rsvpSelect() {
     yesButton.classList.add("selected");
     noButton.classList.remove("selected");
     yesName.required = true;
-    submit.classList.remove("bye");
+    subBox.classList.remove("bye");
+    subBox.setAttribute("display", "flex")
   } else {
     yesBox.classList.add("bye");
     noBox.classList.remove("bye");
     yesButton.classList.remove("selected");
     noButton.classList.add("selected");
     yesName.required = false;
-    submit.classList.remove("bye");
+    subBox.classList.remove("bye");
+    subBox.setAttribute("display", "flex")
   }
 }
 
@@ -130,7 +134,7 @@ function showRSVP() {
 
 
 
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 function populateNo() {

@@ -16,8 +16,9 @@
 }
 
 a{
-    color: #691d02;
+    color: var(--yellow);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 10pt;
 }
 
 body {
@@ -45,7 +46,6 @@ h3 {
   font-size: 24px;
   font-style: italic;
   margin: 5px;
-  /* background-color: #fbe423; */
 }
 
 input {
@@ -93,7 +93,6 @@ textarea {
 
 .bye {
   display: none;
-  visibility: hidden;
 }
 
 .cloud {
@@ -117,25 +116,12 @@ textarea {
   flex-direction: column;
   background-color: var(--yellow);
 padding: 5px;
-margin: 10px;
+margin: 15px;
 border-radius: 5px;
 font-weight: 500;
-border: 2px solid #ff6550;
+border: 8px solid var(--rust);
 
 }
-
-/* #dresscode{
-      display: flex;
-  flex-direction: column;
-  align-items:baseline;
-  margin-right: auto;
-  background-color: var(--yellow);
-  box-shadow: 10px 10px 36px 0px rgba(0,0,0,0.75);
--webkit-box-shadow: 10px 10px 36px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 36px 0px rgba(0,0,0,0.75);
-padding: 5px;
-
-} */
 
 #details{
 width: 60%;
@@ -144,6 +130,7 @@ margin-left: auto;
 box-shadow: 10px -10px 5px 0px rgba(133,67,38,0.75);
 -webkit-box-shadow: 10px -10px 5px 0px rgba(133,67,38,0.75);
 -moz-box-shadow: 10px -10px 5px 0px rgba(133,67,38,0.75);
+transform: perspective(400px) rotateY(-5deg);
 }
 
 #dresscode{
@@ -153,6 +140,7 @@ margin-right: auto;
 box-shadow: -10px -10px 5px 0px rgba(133,67,38,0.75);
 -webkit-box-shadow: -10px -10px 5px 0px rgba(133,67,38,0.75);
 -moz-box-shadow: -10px -10px 5px 0px rgba(133,67,38,0.75);
+transform: perspective(400px) rotateY(5deg);
 }
 
 #details-link{
@@ -163,9 +151,25 @@ box-shadow: -10px -10px 5px 0px rgba(133,67,38,0.75);
     justify-content: end;
 }
 
+#directions{
+    width: 100vw;
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+}
+
 #guest-box {
   display: flex;
   flex-direction: column;
+}
+
+#parking{
+    width: 70vw;
+    max-width: 300px;
+    border: 8px solid var(--rust);
+    box-shadow: 0px 0px 15px 0px rgba(133,67,38,0.75);
+-webkit-box-shadow: 0px 0px 15px 0px rgba(133,67,38,0.75);
+-moz-box-shadow: 0px 0px 15px 0px rgba(133,67,38,0.75);
 }
 
 #pickles{
@@ -205,10 +209,7 @@ box-shadow: -10px -10px 5px 0px rgba(133,67,38,0.75);
   text-decoration: none;
   text-shadow: 0px 1px 0px #2f6627;
 }
-/* .rsvp-button:hover {
-  background-color: #fa2ae9;
-  border: 6px dotted #12db22;
-} */
+
 .rsvp-button:active {
   position: relative;
   top: 1px;
@@ -219,7 +220,7 @@ box-shadow: -10px -10px 5px 0px rgba(133,67,38,0.75);
   border: 6px dotted #12db22;
 }
 
-#sub-box {
+#sub-butt-box {
   display: flex;
   justify-content: center;
   margin: 10px;
@@ -239,6 +240,7 @@ box-shadow: -10px -10px 5px 0px rgba(133,67,38,0.75);
   text-decoration: none;
   text-shadow: 0px 1px 0px #2f6627;
 }
+
 
 .under{
     text-decoration:underline;
