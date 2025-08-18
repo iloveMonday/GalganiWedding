@@ -55,6 +55,7 @@ function newGuestLine() {
   input.setAttribute("type", "text");
   input.setAttribute("name", "additional");
   input.setAttribute("class", "additional");
+  input.setAttribute("maxlength", "30")
 
   guestBox.appendChild(input);
 }

@@ -9,16 +9,6 @@
 </head>
 <body>
     <h2>You're Invited to Olivia & Joe's Wedding Celebration</h2>
-<!-- 
-        <div>
-            <div id="directions"></div>
-            <div id="details">
-                <span>Saturday October 18, 2025 at 4pm</span>
-                <span>Kitchen Garden Farm</span>
-                <span>131 S Silver Lane, Sunderland, MA</span>
-            </div>
-        </div> -->
-
 
 
         <div id="details-link">
@@ -41,7 +31,7 @@
                 <p><span>Sorry You Can't Make It! Please Send Regrets</span></p>
                 <p>
                     <label>Name</label><br>
-                    <input type="text" name="no-name">
+                    <input type="text" name="no-name" maxlength="20">
                 </p>
                 <p>
                     <label>Well Wishes & Hate Mail:</label><br>
@@ -51,22 +41,23 @@
         </div>
           <div id="yes-box" class="bye">
               <fieldset>
+                <input name="email" id="email" class="bye" tabindex="-1" autocomplete="off">
                   <p>
                     <label>Your Name<span class="req">*</span></label><br>
-                    <input type="text" name="name" id="name">
+                    <input type="text" name="name" id="name"   maxlength="30">
                   </p>
                   <p>
                     <label>Will You Be Bringing Anyone Else?</label>
                   <div id="guest-box"></div>
-                    <button id="add-guest" type="button">ADD GUEST</button>
+                    <button id="add-guest" type="button" maxlength="20">ADD GUEST</button>
                   </p>
                   <p>
                     <label>Any Food Allergies?</label><br>
-                    <input type="text" name="allergy" id="allergy">
+                    <input type="text" name="allergy" id="allergy"   maxlength="20">
                   </p>
                   <p>
                     <label>Do You Have a Song Request?</label><br>
-                    <input type="text" name="song" id="song">
+                    <input type="text" name="song" id="song" maxlength="40">
                   </p>
               </fieldset>
           </div>
