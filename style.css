@@ -40,7 +40,6 @@ h2 {
   margin-top: 5px;
   margin-bottom: 0px;
   /* text-decoration: underline dotted var(--yellow); */
-  text-decoration: underline solid var(--yellow);
 }
 
 h3 {
@@ -172,6 +171,19 @@ transform: perspective(400px) rotateY(5deg);
   flex-direction: column;
 }
 
+#header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: var(--yellow);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  transform: skew(-30deg);
+
+}
+
 #parking{
     width: 70vw;
     max-width: 300px;
@@ -183,7 +195,7 @@ transform: perspective(400px) rotateY(5deg);
 
 #pickles{
     width:40%;
-     animation: spin 5s linear infinite;
+    animation: spin 5s linear infinite;
 }
 
 #pickle-box{
