@@ -1,3 +1,6 @@
+
+@font-face {font-family: "oddballz"; src: url("./Fonts/oddballz.ttf")}
+
 :root{
     --yellow: #fbe423;
     --light-orange: #fba004;
@@ -121,6 +124,8 @@ textarea {
 }
 
 #details, #dresscode {
+/* font-family: 'oddballz';
+font-size: 10px; */
   display: flex;
   flex-direction: column;
   background-color: var(--yellow);
@@ -207,8 +212,13 @@ animation: float 7s ease-in infinite
 }
 
 .please{
-    font-style: italic;
-    margin: 5px;
+    /* font-family: Courier;
+    font-style: italic bold;
+    font-size: 16px; */
+    font-family: 'oddballz'; 
+    font-size: 12px;
+    margin-top: 3px;
+    margin-left: 20px;
 }
 
 .req{
