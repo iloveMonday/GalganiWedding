@@ -24,6 +24,7 @@ form.addEventListener("submit", async (e) => {
       submission[name] = compileGuests();
     }
   });
+
   submission["total"] = totalGuests();
 
   console.log(submission);
@@ -33,15 +34,19 @@ form.addEventListener("submit", async (e) => {
     .insert([submission], { returning: "minimal" });
 
   if (error) {
-    alert("Oh no. Oh jeez. There was an error. Maybe your forgot your name. Please try again.");
+    alert(
+      "Oh no. Oh jeez. There was an error. Maybe your forgot your name. Please try again."
+    );
   } else {
-    alert(`See you October 18th, ${yesName.value}!`);
-    // showRSVP();
+    if (yesName.value) {
+      alert(`See you October 18th, ${yesName.value}!`);
+    } else {
+      alert(`Sorry to see you go :(`);
+    }
   }
 
   formInputs.forEach((e) => (e.value = ""));
 });
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -49,19 +54,25 @@ let addGuestButton = document.getElementById("add-guest");
 let guestBox = document.getElementById("guest-box");
 let yesName = document.getElementById("name");
 let noName = document.getElementById("no-name");
+let extra = 0;
 
 function newGuestLine() {
   let input = document.createElement("input");
   input.setAttribute("type", "text");
   input.setAttribute("name", "additional");
   input.setAttribute("class", "additional");
-  input.setAttribute("maxlength", "30")
+  input.setAttribute("maxlength", "30");
 
   guestBox.appendChild(input);
+  extra++;
 }
 
 addGuestButton.addEventListener("click", () => {
-  newGuestLine();
+  if (extra < 12) {
+    newGuestLine();
+  } else {
+    alert(`Wow, That's A Lot of People!`);
+  }
 });
 
 function compileGuests() {
@@ -113,7 +124,7 @@ function rsvpSelect() {
     noButton.classList.remove("selected");
     yesName.required = true;
     subBox.classList.remove("bye");
-    subBox.setAttribute("display", "flex")
+    subBox.setAttribute("display", "flex");
   } else {
     yesBox.classList.add("bye");
     noBox.classList.remove("bye");
@@ -121,22 +132,17 @@ function rsvpSelect() {
     noButton.classList.add("selected");
     yesName.required = false;
     subBox.classList.remove("bye");
-    subBox.setAttribute("display", "flex")
+    subBox.setAttribute("display", "flex");
   }
 }
 
 function showRSVP() {
   var popup = document.getElementById("myPopup");
   popup.classList.toggle("show");
-  popup.innerHTML = `See you in the field October 18th, ${yesName.value}! No Dress Code, Just Dress for the Weather!`
+  popup.innerHTML = `See you in the field October 18th, ${yesName.value}! No Dress Code, Just Dress for the Weather!`;
 }
 
-
-
-
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 function populateNo() {
   let span = document.createElement("span");
