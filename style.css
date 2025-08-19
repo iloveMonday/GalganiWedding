@@ -39,7 +39,8 @@ h2 {
   font-style: italic;
   margin-top: 5px;
   margin-bottom: 0px;
-  text-decoration: underline dotted var(--yellow);
+  /* text-decoration: underline dotted var(--yellow); */
+  text-decoration: underline solid var(--yellow);
 }
 
 h3 {
