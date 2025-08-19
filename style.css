@@ -37,8 +37,8 @@ h2 {
   text-align: center;
   font-size: 28px;
   font-style: italic;
-  margin: 8px;
-  margin-bottom: 15px;
+  margin-top: 5px;
+  margin-bottom: 0px;
   text-decoration: underline dotted var(--yellow);
 }
 
@@ -83,6 +83,14 @@ textarea {
   text-decoration: none;
   text-shadow: 0px 1px 0px #2f6627;
   margin: 5px;
+}
+
+.additional{
+    margin-bottom: 5px;
+}
+
+.bringin{
+    margin: 2px;
 }
 
 #button-box {
@@ -180,6 +188,11 @@ transform: perspective(400px) rotateY(5deg);
 #pickle-box{
     display: flex;
     justify-content: center;
+}
+
+.please{
+    font-style: italic;
+    margin: 5px;
 }
 
 .req{
